@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>散歩日和</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      color: #4a443d;
+      background-color: #f5f0e8;
+      padding-bottom: 110px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: #7b8b6f;
+      color: #fffdf7;
+      padding: 28px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 4px;
+      animation: titleFade 1.2s ease-out;
+    }
+    
+    @keyframes titleFade ｛
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* メイン */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* 日記 */
+    section {
+      background-color: #fffdf8;
+      margin-bottom: 24px;
+      padding: 30px;
+      border-radius: 6px;
+      border: 1px solid #e5ddd0;
+      box-shadow: 0 2px 8px rgba(80, 65, 45, 0.08);
+    }
+
+    /* 日付・天気 */
+    .info {
+      display: flex;
+      gap: 40px;
+      border-bottom: 1px solid #ddd3c4;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #66594c;
+      font-size: 22px;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    /* フッター */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #5d6653;
+      color: #f8f4ec;
+      padding: 16px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    footer a {
+      color: #e8d8b8;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>散歩日和</h1>
+  </header>
+
+  <main>
+
+    <!-- 日記 -->
+    <section>
+
+      <div class="info">
+        <h2>日付：8月16日</h2>
+        <h2>天気：晴れ</h2>
+      </div>
+
+      <p>
+        今日は天気がよかったので、近所をゆっくり散歩しました。
+        暑い日でしたが、木陰に入ると風が涼しくて気持ちよかったです。
+      </p>
+
+      <p>
+        道端に小さな花が咲いているのを見つけました。
+        普段は気づかないような景色も、ゆっくり歩いてみると
+        意外とたくさん見つかるものだなと思いました。
+      </p>
+
+    </section>
+
+    <!-- お問い合わせ -->
+    <section>
+      <h2>お問い合わせ</h2>
+      <p>
+        ご質問やご感想がございましたら、お気軽にお問い合わせください。
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>お問い合わせ：example@example.com</p>
+    <p>
+      <a href="#">X</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </p>
+  </footer>
+
+</body>
+</html>

@@ -19,42 +19,296 @@
       animation: fadeIn 1s ease-in;
     }
 
-    /* ヘッダー */
-    header {
-      background-color: #7b8b6f;
-      color: #fffdf7;
-      padding: 28px;
-      text-align: center;
-    }
+/* ヘッダー */
+header {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
+  background: linear-gradient(
+    to bottom,
+    #72b9df 0%,
+    #b9dceb 55%,
+    #e9dfc8 100%
+  );
 
-      to {
-        opacity: 1;
-      }
-    }
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-      letter-spacing: 4px;
-      animation: titleFade 1.2s ease-out;
-    }
-    
-    @keyframes titleFade {
-      from {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
+  animation: skyChange 60s linear infinite;
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+@keyframes skyChange {
+
+  /* 朝・昼 */
+  0% {
+    background: linear-gradient(
+      to bottom,
+      #72b9df,
+      #b9dceb,
+      #e9dfc8
+    );
+  }
+
+  /* 青空 */
+  35% {
+    background: linear-gradient(
+      to bottom,
+      #55a9d6,
+      #a9d7e8,
+      #e8dfc8
+    );
+  }
+
+  /* 夕焼け開始 */
+  65% {
+    background: linear-gradient(
+      to bottom,
+      #df806f,
+      #f2ad7e,
+      #f4d19b
+    );
+  }
+
+  /* 夕焼け */
+  80% {
+    background: linear-gradient(
+      to bottom,
+      #d9655f,
+      #ee9271,
+      #f5c58c
+    );
+  }
+
+  /* 夜に戻る */
+  100% {
+    background: linear-gradient(
+      to bottom,
+      #72b9df,
+      #b9dceb,
+      #e9dfc8
+    );
+  }
+}
+
+/* 木々 */
+header::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 200%;
+  height: 90px;
+
+  background:
+    radial-gradient(
+      circle at 5% 100%,
+      #536b4b 0 45px,
+      transparent 46px
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      #617957 0 55px,
+      transparent 56px
+    ),
+    radial-gradient(
+      circle at 20% 100%,
+      #4d6546 0 50px,
+      transparent 51px
+    ),
+    radial-gradient(
+      circle at 30% 100%,
+      #617957 0 65px,
+      transparent 66px
+    ),
+    radial-gradient(
+      circle at 42% 100%,
+      #536b4b 0 50px,
+      transparent 51px
+    ),
+    radial-gradient(
+      circle at 55% 100%,
+      #617957 0 60px,
+      transparent 61px
+    ),
+    radial-gradient(
+      circle at 68% 100%,
+      #4d6546 0 55px,
+      transparent 56px
+    ),
+    radial-gradient(
+      circle at 80% 100%,
+      #617957 0 65px,
+      transparent 66px
+    ),
+    radial-gradient(
+      circle at 93% 100%,
+      #536b4b 0 50px,
+      transparent 51px
+    );
+
+  animation: treesMove 40s linear infinite;
+}
+
+/* タイトルを木々より前に表示 */
+header h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 6px;
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+
+  animation: titleFade 1.2s ease-out;
+}
+
+/* 木々をゆっくり動かす */
+@keyframes treesMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 15%;
+
+  width: 180px;
+  height: 50px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50px;
+
+  box-shadow:
+    60px -20px 0 10px rgba(255, 255, 255, 0.75),
+    110px 5px 0 5px rgba(255, 255, 255, 0.75);
+
+  animation: cloudMove 60s linear infinite;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(130vw);
+  }
+}
+
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 150px;
+
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+
+  width: 150px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50px;
+
+  z-index: 2;
+}
+
+/* 雲の形 */
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 60px;
+  height: 60px;
+
+  left: 25px;
+  bottom: 10px;
+}
+
+.cloud::after {
+  width: 75px;
+  height: 75px;
+
+  right: 25px;
+  bottom: 5px;
+}
+
+/* 雲1 */
+.cloud1 {
+  top: 30px;
+  left: -180px;
+
+  animation: cloudMove 50s linear infinite;
+}
+
+/* 雲2 */
+.cloud2 {
+  top: 80px;
+  left: -400px;
+
+  transform: scale(0.7);
+
+  animation: cloudMove 50s linear infinite;
+  animation-delay: 12s;
+}
+
+/* 雲3 */
+.cloud3 {
+  top: 45px;
+  left: -600px;
+
+  transform: scale(1.2);
+
+  animation: cloudMove 50s linear infinite;
+  animation-delay: 25s;
+}
+
+/* 雲4 */
+.cloud4 {
+  top: 100px;
+  left: -800px;
+
+  transform: scale(0.6);
+
+  animation: cloudMove 50s linear infinite;
+  animation-delay: 38s;
+}
+
+@keyframes cloudMove {
+
+  from {
+    left: -200px;
+  }
+
+  to {
+    left: 110%;
+  }
+
+}
+
 
     /* メイン */
     main {
@@ -71,6 +325,12 @@
       border-radius: 6px;
       border: 1px solid #e5ddd0;
       box-shadow: 0 2px 8px rgba(80, 65, 45, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(80, 65, 45, 0.15);
     }
 
     /* 日付・天気 */
@@ -122,9 +382,18 @@
 
 <body>
 
-  <header>
-    <h1>散歩日和</h1>
-  </header>
+<header>
+  <div class="clouds">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+  </div>
+
+  <div class="forest"></div>
+
+  <h1>散歩日和</h1>
+</header>
 
   <main>
 
@@ -146,7 +415,8 @@
         普段は気づかないような景色も、ゆっくり歩いてみると
         意外とたくさん見つかるものだなと思いました。
       </p>
-      <img src="https://github.com/sugita-jp/html_test1/blob/main/cupcake.jpg?raw=true" alt="サンプル">
+
+      <img src="cupcake.jpg" alt="カップケーキ">
     </section>
 
     <!-- お問い合わせ -->
